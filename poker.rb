@@ -1,0 +1,3 @@
+def randomcard(amount)
+    
+end
