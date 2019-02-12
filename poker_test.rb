@@ -24,7 +24,7 @@ class Test < Minitest::Test
     end
     def test_for_nonstandard_datatype
         possiblenumbers = (1..52).to_a
-        cardnum = randomcard("1")
-        assert_equal(0,cardnum)
+        cardnum = randomcard("apples")
+        assert_equal(["stobbit"],cardnum)
     end
 end
