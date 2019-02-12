@@ -16,4 +16,10 @@ class Test < Minitest::Test
         assert_equal(true, possiblenumbers.include?(cardnum[1]))
         assert_equal(false, cardnum[1] == cardnum[0])
     end
+    def test_for_whole_deck
+        possiblenumbers = (1..52).to_a
+        cardnum = randomcard(52)
+        puts cardnum
+        assert_equal(true,52 == cardnum.length)
+    end
 end
