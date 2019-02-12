@@ -33,4 +33,8 @@ class Test < Minitest::Test
     def test_hand_namer
         assert_equal(["Two of Clubs", "Three of Clubs", "Four of Clubs", "Five of Clubs", "Six of Clubs"], handname([1,5,9,13,17]))
     end
+    def test_drawtwohands
+        twohands = drawtwohands
+        assert_equal(true, twohands.length == 2)
+    end
 end

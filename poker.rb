@@ -25,3 +25,17 @@ def handname(numbers)
     end
     return arr
 end
+def drawtwohands
+    drawncards = handname(randomcard(10))
+    hand1 = []
+    hand2 = []
+    5.times do
+        hand1 << drawncards[0]
+        drawncards.delete_at(0)
+    end
+    5.times do
+        hand2 << drawncards[0]
+        drawncards.delete_at(0)
+    end
+    return [hand1,hand2]
+end
