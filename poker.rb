@@ -10,7 +10,7 @@ def randomcard(amount)
         cards.delete_at(card)
         drawncards << card
     end
-    puts drawncards
+    # puts drawncards
     return drawncards
     end
 end
@@ -38,9 +38,7 @@ def drawtwohands
         hand2 << drawncards[0]
         drawncards.delete_at(0)
     end
-    puts "Hand one:"
-    puts hand1
-    puts "Hand two:"
-    puts hand2
+    puts "Hand one: #{hand1}"
+    puts "Hand two: #{hand2}"
     return [hand1,hand2]
 end
