@@ -15,8 +15,8 @@ def randomcard(amount)
     end
 end
 def cardnamer(cardnum)
-    names = ["Two of Clubs", "Two of Diamonds", "Two of Hearts", "Two of Spades", "Three of Clubs", "Three of Diamonds", "Three of Hearts", "Three of Spades", "Four of Clubs", "Four of Diamonds", "Four of Hearts", "Four of Spades", "Five of Clubs", "Five of Diamonds", "Five of Hearts", "Five of Spades", "Six of Clubs", "Six of Diamonds", "Six of Hearts", "Six of Spades", "Seven of Clubs", "Seven of Diamonds", "Seven of Hearts", "Seven of Spades", "Eight of Clubs", "Eight of Diamonds", "Eight of Hearts", "Eight of Spades", "Nine of Clubs", "Nine of Diamonds", "Nine of Hearts", "Nine of Spades", "Ten of Clubs", "Ten of Diamonds", "Ten of Hearts", "Ten of Spades", "Jack of Clubs", "Jack of Diamonds", "Jack of Hearts", "Jack of Spades", "Queen of Clubs", "Queen of Diamonds", "Queen of Hearts", "Queen of Spades", "King of Clubs", "King of Diamonds", "King of Hearts", "King of Spades", "Ace of Clubs", "Ace of Diamonds", "Ace of Hearts", "Ace of Spades"]
-    return names[cardnum-1] + " (#{cardnum})"
+    names = [[2,1], [2, 2], [2, 3], [2,4], [3,1], [3, 2], [3, 3], [3,4], [4,1], [4, 2], [4, 3], [4,4], [5,1], [5, 2], [5, 3], [5,4], [6,1], [6, 2], [6, 3], [6,4], [7,1], [7, 2], [7, 3], [7,4], [8,1], [8, 2], [8, 3], [8,4], [9,1], [9, 2], [9, 3], [9,4], [10,1], [10, 2], [10, 3], [10,4], [11,1], [11, 2], [11, 3], [11,4], [12,1], [12, 2], [12, 3], [12,4], [13,1], [13, 2], [13, 3], [13,4], [14,1], [14, 2], [14, 3], [14,4]]
+    return names[cardnum-1]
 end
 def handname(numbers)
     arr = Array.new
