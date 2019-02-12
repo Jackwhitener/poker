@@ -10,7 +10,9 @@ def randomcard(amount)
         cards.delete_at(card)
         drawncards << card
     end
-puts drawncards
-return drawncards
+    puts drawncards
+    return drawncards
+    end
 end
+def cardnamer(cardnum)
 end

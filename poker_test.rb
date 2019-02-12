@@ -27,4 +27,7 @@ class Test < Minitest::Test
         cardnum = randomcard("apples")
         assert_equal(["stobbit"],cardnum)
     end
+    def test_for_card_namer
+        assert_equal("Two of Clubs", cardnamer(1))
+    end
 end
