@@ -9,4 +9,11 @@ class Test < Minitest::Test
         cardnum = randomcard(1)
         assert_equal(true, possiblenumbers.include?(cardnum))
     end
+    def test_multiple_cards
+        possiblenumbers = (1..52)
+        cardnum = randomcard(2)
+        assert_equal(true, possiblenumbers.include?(cardnum[0]))
+        assert_equal(true, possiblenumbers.include?(cardnum[1]))
+        assert_equal(false, cardnum[1] == cardnum[0])
+    end
 end
