@@ -22,4 +22,9 @@ class Test < Minitest::Test
         puts cardnum
         assert_equal(true,52 == cardnum.length)
     end
+    def test_for_nonstandard_datatype
+        possiblenumbers = (1..52).to_a
+        cardnum = randomcard("1")
+        assert_equal(0,cardnum)
+    end
 end
