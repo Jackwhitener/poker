@@ -28,10 +28,10 @@ class Test < Minitest::Test
         assert_equal(["stobbit"],cardnum)
     end
     def test_for_card_namer
-        assert_equal("Two of Clubs", cardnamer(1))
+        assert_equal("Two of Clubs (1)", cardnamer(1))
     end
     def test_hand_namer
-        assert_equal(["Two of Clubs", "Three of Clubs", "Four of Clubs", "Five of Clubs", "Six of Clubs"], handname([1,5,9,13,17]))
+        assert_equal(["Two of Clubs (1)", "Three of Clubs (5)", "Four of Clubs (9)", "Five of Clubs (13)", "Six of Clubs (17)"], handname([1,5,9,13,17]))
     end
     def test_drawtwohands
         twohands = drawtwohands
