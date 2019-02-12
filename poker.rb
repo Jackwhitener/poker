@@ -37,5 +37,7 @@ def drawtwohands
         hand2 << drawncards[0]
         drawncards.delete_at(0)
     end
+    puts "Hand one: #{hand1}"
+    puts "Hand two: #{hand2}"
     return [hand1,hand2]
 end
