@@ -37,4 +37,8 @@ class Test < Minitest::Test
         twohands = drawtwohands
         assert_equal(true, twohands.length == 2)
     end
+    def test_royalflush
+        twohands=drawtwohands
+        assert_equal(true, royalflush(twohands))
+    end
 end

@@ -42,3 +42,5 @@ def drawtwohands
     puts "Hand two: #{hand2}"
     return [hand1,hand2]
 end
+def royalflush(twohands)
+end
