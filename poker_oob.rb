@@ -4,3 +4,6 @@ class Hand
         @cards_in_hand = cards_in_hand
     end
 end
+def randhand
+    deck
+end
