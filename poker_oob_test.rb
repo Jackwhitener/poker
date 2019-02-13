@@ -18,7 +18,7 @@ class Test < Minitest::Test
     end
     def test_for_deck_shuffle
         deck = Deck.new((1..52).to_a)
-        deck.shuffle
+        deck.cards_in_deck = deck.shufflecards
         assert_equal(false, (1..52).to_a == deck.cards_in_deck)
     end
 end
