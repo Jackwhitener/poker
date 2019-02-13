@@ -19,7 +19,7 @@ class Test < Minitest::Test
     def test_for_whole_deck
         possiblenumbers = (1..52).to_a
         cardnum = randomcard(52)
-        # puts cardnum
+        puts cardnum
         assert_equal(true,52 == cardnum.length)
     end
     def test_for_nonstandard_datatype
@@ -27,18 +27,18 @@ class Test < Minitest::Test
         cardnum = randomcard("apples")
         assert_equal(["stobbit"],cardnum)
     end
-    # def test_for_card_namer
-    #     assert_equal("Two of Clubs (1)", cardnamer(1))
-    # end
-    # def test_hand_namer
-    #     assert_equal(["Two of Clubs (1)", "Three of Clubs (5)", "Four of Clubs (9)", "Five of Clubs (13)", "Six of Clubs (17)"], handname([1,5,9,13,17]))
-    # end
+    def test_for_card_namer
+        assert_equal("Two of Clubs (1)", cardnamer(1))
+    end
+    def test_hand_namer
+        assert_equal(["Two of Clubs (1)", "Three of Clubs (5)", "Four of Clubs (9)", "Five of Clubs (13)", "Six of Clubs (17)"], handname([1,5,9,13,17]))
+    end
     def test_drawtwohands
         twohands = drawtwohands
         assert_equal(true, twohands.length == 2)
     end
     def test_royalflush
-        twohands=drawtwohands
-        assert_equal(true, royalflush(twohands))
+        hand = 
+        assert_equal(true, royalflush(twohands[0]))
     end
 end
