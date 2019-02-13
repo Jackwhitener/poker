@@ -13,7 +13,7 @@ class Test < Minitest::Test
         assert_equal([1,5,7,9,13], hand.cards_in_hand)
     end
     def test_for_random_deck
-        deck = Deck.new
+        deck = Deck.new((1..52).to_a)
         assert_equal(Deck, deck.class)
     end
 end

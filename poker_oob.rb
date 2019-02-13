@@ -4,6 +4,9 @@ class Hand
         @cards_in_hand = cards_in_hand
     end
 end
-def randhand
-    deck
+class Deck
+    attr_accessor :cards_in_deck
+    def initialize(cards_in_deck)
+        @cards_in_deck = cards_in_deck
+    end
 end
