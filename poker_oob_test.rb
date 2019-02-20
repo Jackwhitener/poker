@@ -21,4 +21,9 @@ class Test < Minitest::Test
         deck.cards_in_deck = deck.shufflecards
         assert_equal(false, (1..52).to_a == deck.cards_in_deck)
     end
+    def test_for_draw
+        deck = Deck.new((1..52).to_a)
+        hand = Hand.new(draw(5, deck))
+        assert_equal(5, hand.length)
+    end
 end

@@ -1,7 +1,11 @@
 class Hand
     attr_accessor :cards_in_hand
     def initialize(cards_in_hand)
-        @cards_in_hand = cards_in_hand
+        if cards_in_hand != nil
+            @cards_in_hand = cards_in_hand
+        else
+            @cards_in_hand = []
+        end
     end
 end
 class Deck
@@ -12,4 +16,7 @@ class Deck
     def shufflecards
        return cards_in_deck.shuffle
     end
+end
+def draw(number, deck)
+
 end
