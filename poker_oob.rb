@@ -24,3 +24,6 @@ class Deck
        return cards_in_deck.shuffle
     end
 end
+def handjudger(hand)
+
+end

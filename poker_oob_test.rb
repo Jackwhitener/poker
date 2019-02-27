@@ -47,4 +47,8 @@ class Test < Minitest::Test
         hand1.draw(deck1, 5)
         assert_equal(false, hand1 == hand)
     end
+    def test_for_hand_judger
+        hand = Hand.new([1,5,11,52,11])
+        assert_equal("Ace High", handjudger(hand))
+    end
 end
