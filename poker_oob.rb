@@ -9,8 +9,10 @@ class Hand
     end
     def draw(deckdrawnfrom, cardnum)
         puts deckdrawnfrom.cards_in_deck
-        cards_in_hand << deckdrawnfrom.cards_in_deck[-1]
-        deckdrawnfrom.cards_in_deck.delete_at(deckdrawnfrom.cards_in_deck[-1])
+        cardnum.times do
+            cards_in_hand << deckdrawnfrom.cards_in_deck[-1]
+            deckdrawnfrom.cards_in_deck.delete_at(deckdrawnfrom.cards_in_deck[-1])
+        end
     end
 end
 class Deck 
