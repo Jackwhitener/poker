@@ -54,5 +54,7 @@ class Test < Minitest::Test
         assert_equal("King High", handjudger(hand1))
         hand2 = Hand.new([9,17,22,33,44])
         assert_equal("Queen High", handjudger(hand2))
+        hand3 = Hand.new([1,6,11,17,40])
+        assert_equal("Jack High", handjudger(hand3) )
     end
 end
