@@ -37,4 +37,14 @@ class Test < Minitest::Test
         hand.draw(deck, 5)
         assert_equal(5, hand.cards_in_hand.length)
     end
+    def test_for_shuffled_deck
+        deck1 = Deck.new
+        hand1 = Hand.new(nil)
+        deck = Deck.new
+        hand = Hand.new(nil)
+        hand.draw(deck, 5)
+        deck1.shufflecards
+        hand1.draw(deck1, 5)
+        assert_equal(false, hand1 == hand)
+    end
 end

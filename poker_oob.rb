@@ -8,7 +8,6 @@ class Hand
         end
     end
     def draw(deckdrawnfrom, cardnum)
-        puts deckdrawnfrom.cards_in_deck
         cardnum.times do
             cards_in_hand << deckdrawnfrom.cards_in_deck[-1]
             deckdrawnfrom.cards_in_deck.delete_at(deckdrawnfrom.cards_in_deck[-1])
