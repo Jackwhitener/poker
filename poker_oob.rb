@@ -33,5 +33,7 @@ def handjudger(hand)
         return "Queen High"
     elsif hand.cards_in_hand.include?(40) || hand.cards_in_hand.include?(39) || hand.cards_in_hand.include?(38) || hand.cards_in_hand.include?(37)
         return "Jack High" 
+    else
+        return "Card High"
     end
 end
