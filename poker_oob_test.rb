@@ -31,4 +31,10 @@ class Test < Minitest::Test
         hand.draw(deck, 1)
         assert_equal(1, hand.cards_in_hand.length)
     end
+    def test_for_multiple_cards
+        deck = Deck.new
+        hand = Hand.new(nil)
+        hand.draw(deck, 5)
+        assert_equal(5, hand.cards_in_hand.length)
+    end
 end
