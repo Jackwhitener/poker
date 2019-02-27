@@ -25,5 +25,5 @@ class Deck
     end
 end
 def handjudger(hand)
-
+    return "Ace High" if hand.cards_in_hand.include?(52) || hand.cards_in_hand.include?(51) || hand.cards_in_hand.include?(50) || hand.cards_in_hand.include?(49)
 end
