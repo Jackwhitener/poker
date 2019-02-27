@@ -28,7 +28,7 @@ class Test < Minitest::Test
     def test_for_draw
         deck = Deck.new
         hand = Hand.new(nil)
-        hand.draw(deck.cards_in_deck)
-        assert_equal(5, hand.cards_in_hand.length)
+        hand.draw(deck, 1)
+        assert_equal(1, hand.cards_in_hand.length)
     end
 end

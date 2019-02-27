@@ -7,8 +7,10 @@ class Hand
             @cards_in_hand = []
         end
     end
-    def draw(deckdrawnfrom)
-
+    def draw(deckdrawnfrom, cardnum)
+        puts deckdrawnfrom.cards_in_deck
+        cards_in_hand << deckdrawnfrom.cards_in_deck[-1]
+        deckdrawnfrom.cards_in_deck.delete_at(deckdrawnfrom.cards_in_deck[-1])
     end
 end
 class Deck 
