@@ -25,10 +25,12 @@ class Deck
     end
 end
 def handjudger(hand)
-    pairs = [[1,2]]
+    pairs = [[1,2], [1,3], [1,4], [2,3], [2,4], [3,4], [5,6], [5,7], [5,8], [6,7], [6,8], [7,8]]
     pairs.each do |pair|
         paircount = 0
-        if hand.cards_in_hand.include?(pair[0] && pair[1])
+        if hand.cards_in_hand.include?(pair[0]) && hand.cards_in_hand.include?(pair[1])
+            puts "This is pair: #{pair}"
+            puts "This is cards_in_hand: #{hand.cards_in_hand}"
             paircount += 1
         end
         if paircount > 0
