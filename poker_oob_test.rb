@@ -61,7 +61,6 @@ class Test < Minitest::Test
     end
     def test_for_hand_judger_pair
         hand = Hand.new([1,2])
-        assert_equal("Pair" handjudger(hand))
-    end
+        assert_equal("Pair", handjudger(hand))
     end
 end
