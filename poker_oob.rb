@@ -25,6 +25,16 @@ class Deck
     end
 end
 def handjudger(hand)
+    pairs = [[1,2]]
+    pairs.each do |pair|
+        paircount = 0
+        if hand.cards_in_hand.include?(pair[0] && pair[1])
+            paircount += 1
+        end
+        if paircount > 0
+            return "Pair"
+        end
+    end
     if hand.cards_in_hand.include?(52) || hand.cards_in_hand.include?(51) || hand.cards_in_hand.include?(50) || hand.cards_in_hand.include?(49)
         return "Ace High" 
     elsif hand.cards_in_hand.include?(48) || hand.cards_in_hand.include?(47) || hand.cards_in_hand.include?(46) || hand.cards_in_hand.include?(45)
