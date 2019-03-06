@@ -71,4 +71,8 @@ class Test < Minitest::Test
         hand1 = Hand.new([1,2,3,4])
         assert_equal("Four of a Kind", handjudger(hand1))
     end
+    def test_for_hand_judger_straight
+        hand = Hand.new([11,6,1,17,16])
+        assert_equal("Straight", handjudger_s(hand))
+    end
 end
