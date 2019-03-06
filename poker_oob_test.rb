@@ -68,5 +68,7 @@ class Test < Minitest::Test
     def test_for_hand_judger_toak
         hand = Hand.new([1,2,3])
         assert_equal("Three of a Kind", handjudger(hand))
+        hand1 = Hand.new([1,2,3,4])
+        assert_equal("Four of a Kind", handjudger(hand1))
     end
 end

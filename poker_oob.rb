@@ -34,6 +34,7 @@ def handjudger_toak(hand)
             end
         end
         return "Three of a Kind" if handvalue == 3
+        return "Four of a Kind" if handvalue == 4
     end
 end
 def handjudger_p(hand)
@@ -68,7 +69,7 @@ def handjudger_hc(hand)
 end
 def handjudger(hand)
     result = handjudger_toak(hand)
-    if result == "Three of a Kind"
+    if result == "Three of a Kind" || result == "Four of a Kind"
         return result
     else
     result = handjudger_p(hand)
