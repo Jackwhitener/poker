@@ -24,6 +24,20 @@ class Deck
        return cards_in_deck.shuffle
     end
 end
+def straight_helper(card)
+    score = 0
+    puts "This is card #{card}"
+    card.each do |icard|
+        if icard == 'X'
+            score += 1
+        end
+    end
+    if score == 3 || score == 4
+        return "True"
+    else
+        return "False"
+    end
+end
 def handjudger_s(hand)
     card_values = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16], [17,18,19,20], [21,22,23,24], [25,26,27,28], [29,30,31,32], [33,34,35,36], [37,38,39,40], [41,42,43,44], [45,46,47,48], [49,50,51,52]]
     handvalue = []
@@ -38,10 +52,20 @@ def handjudger_s(hand)
         end
     end
     puts "Handvalue: #{handvalue}"
+    truth = Array.new
     13.times do
+        arr = Array.new
         4.times do
-            
+            arr << handvalue[0]
+            handvalue.delete_at(0)
         end
+        truth << straight_helper(arr)
+    end
+    puts "This is truth #{truth}"
+    if truth.include?("False")
+        return "Not Straight"
+    else
+        return "Straight"
     end
 end
 def handjudger_toak(hand)
