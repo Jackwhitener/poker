@@ -46,7 +46,7 @@ def truth_interpreter(truth)
         else
             counter = 0
         end
-        if counter == 4
+        if counter == 5
             return "Straight"
             break
         end
@@ -119,7 +119,12 @@ def handjudger_hc(hand)
     end
 end
 def handjudger(hand)
+    result = handjudger_s(hand)
+    if result == "Straight"
+        return result
+    else
     result = handjudger_toak(hand)
+    end
     if result == "Three of a Kind" || result == "Four of a Kind"
         return result
     else

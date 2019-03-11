@@ -48,7 +48,7 @@ class Test < Minitest::Test
         assert_equal(false, hand1 == hand)
     end
     def test_for_hand_judger_high
-        hand = Hand.new([1,5,11,52,17])
+        hand = Hand.new([52])
         assert_equal("Ace High", handjudger(hand))
         hand1 = Hand.new([1,14,5,19,48])
         assert_equal("King High", handjudger(hand1))
@@ -73,6 +73,8 @@ class Test < Minitest::Test
     end
     def test_for_hand_judger_straight
         hand = Hand.new([11,6,1,17,16])
-        assert_equal("Straight", handjudger_s(hand))
+        assert_equal("Straight", handjudger(hand))
+        hand1 = Hand.new([13,18,23,38,29])
+        assert_equal("Straight", handjudger(hand))
     end
 end
