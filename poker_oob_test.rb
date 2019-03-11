@@ -77,4 +77,8 @@ class Test < Minitest::Test
         hand1 = Hand.new([13,18,23,38,29])
         assert_equal("Straight", handjudger(hand))
     end
+    def test_for_hand_judger_flush
+        hand = Hand.new([1,9,17,25,41])
+        assert_equal("Flush", handjudger(hand))
+    end
 end
