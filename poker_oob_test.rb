@@ -81,4 +81,8 @@ class Test < Minitest::Test
         hand = Hand.new([1,9,17,25,41])
         assert_equal("Flush", handjudger(hand))
     end
+    def test_for_hand_judger_fullhouse
+        hand = Hand.new([13,14,15,9,10])
+        assert_equal("Full House", handjudger(hand))
+    end
 end
