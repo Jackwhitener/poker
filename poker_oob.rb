@@ -32,10 +32,24 @@ def straight_helper(card)
             score += 1
         end
     end
-    if score == 3 || score == 4
+    if score == 3
         return "True"
     else
         return "False"
+    end
+end
+def truth_interpreter(truth)
+    counter = 0
+    truth.each do |t|
+        if t == "True"
+            counter += 1
+        else
+            counter = 0
+        end
+        if counter == 4
+            return "Straight"
+            break
+        end
     end
 end
 def handjudger_s(hand)
@@ -62,11 +76,7 @@ def handjudger_s(hand)
         truth << straight_helper(arr)
     end
     puts "This is truth #{truth}"
-    if truth.include?("False")
-        return "Not Straight"
-    else
-        return "Straight"
-    end
+    return truth_interpreter(truth)
 end
 def handjudger_toak(hand)
     card_values = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16], [17,18,19,20], [21,22,23,24], [25,26,27,28], [29,30,31,32], [33,34,35,36], [37,38,39,40], [41,42,43,44], [45,46,47,48], [49,50,51,52]]
