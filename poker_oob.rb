@@ -162,6 +162,9 @@ def handjudger(hand)
     result = handjudger_f(hand)
     if result == "Flush"
         return result
+        if handjudger_s(hand) == "Straight"
+            return "Straight Flush"
+        end
     else
     result = handjudger_s(hand)
     end
