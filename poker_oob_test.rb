@@ -103,5 +103,8 @@ class Test < Minitest::Test
         hand2 = Hand.new([9,17,22,33,43])
         score2 = handjudger(hand2)
         assert_equal(3,scoreboy(score2))
+        hand3 = Hand.new([1,14,5,19,47])
+        score3 = handjudger(hand3)
+        assert_equal(4, scoreboy(score3))
     end
 end
