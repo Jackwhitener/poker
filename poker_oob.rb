@@ -219,5 +219,7 @@ def scoreboy(score)
         return 2
     elsif score == "King High"
         return 3
+    elsif score == "Ace High"
+        return 4
     end
 end
