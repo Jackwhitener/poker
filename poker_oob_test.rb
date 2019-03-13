@@ -93,4 +93,9 @@ class Test < Minitest::Test
         hand = Hand.new([32,36,40,44,48])
         assert_equal("Royal Flush", handjudger(hand))
     end
+    def test_for_score_boy
+        hand = Hand.new([1,6,15,30,32])
+        score = handjudger(hand)
+        assert_equal(1,scoreboy(score))
+    end
 end

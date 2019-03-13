@@ -210,3 +210,6 @@ def handslator(hand)
     hand = [cardnames[hand[0]], cardnames[hand[1]], cardnames[hand[2]], cardnames[hand[3]], cardnames[hand[4]]]
     return hand
 end
+def scoreboy(score)
+    
+end
