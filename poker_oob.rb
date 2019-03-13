@@ -215,5 +215,8 @@ def scoreboy(score)
         return 1
     elsif score == "Jack High"
         return 2
+    elsif score == "Queen High"
+        return 3
+        
     end
 end
