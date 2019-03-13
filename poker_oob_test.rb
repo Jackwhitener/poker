@@ -48,37 +48,37 @@ class Test < Minitest::Test
         assert_equal(false, hand1 == hand)
     end
     def test_for_hand_judger_high
-        hand = Hand.new([52])
+        hand = Hand.new([51,1,14,5,19])
         assert_equal("Ace High", handjudger(hand))
-        hand1 = Hand.new([1,14,5,19,48])
+        hand1 = Hand.new([1,14,5,19,47])
         assert_equal("King High", handjudger(hand1))
-        hand2 = Hand.new([9,17,22,33,44])
+        hand2 = Hand.new([9,17,22,33,43])
         assert_equal("Queen High", handjudger(hand2))
-        hand3 = Hand.new([1,6,11,17,40])
+        hand3 = Hand.new([1,6,11,17,39])
         assert_equal("Jack High", handjudger(hand3) )
-        hand4 = Hand.new([1,6,15,30,36])
+        hand4 = Hand.new([1,6,15,30,32])
         assert_equal("Card High", handjudger(hand4))
     end
     def test_for_hand_judger_pair
         hand = Hand.new([1,2])
         assert_equal("Pair", handjudger(hand))
-        hand1 = Hand.new([1,2,7,8])
+        hand1 = Hand.new([1,2,7,6])
         assert_equal("Two Pair", handjudger(hand1))
     end
     def test_for_hand_judger_toak
         hand = Hand.new([1,2,3])
         assert_equal("Three of a Kind", handjudger(hand))
-        hand1 = Hand.new([1,2,3,4])
+        hand1 = Hand.new([1,2,3,0])
         assert_equal("Four of a Kind", handjudger(hand1))
     end
     def test_for_hand_judger_straight
-        hand = Hand.new([11,6,1,17,16])
+        hand = Hand.new([0,5,10,15,17])
         assert_equal("Straight", handjudger(hand))
-        hand1 = Hand.new([13,18,23,38,29])
+        hand1 = Hand.new([11,16,21,36,27])
         assert_equal("Straight", handjudger(hand))
     end
     def test_for_hand_judger_flush
-        hand = Hand.new([1,9,17,25,41])
+        hand = Hand.new([0,4,12,20,44])
         assert_equal("Flush", handjudger(hand))
     end
     def test_for_hand_judger_fullhouse
@@ -86,11 +86,11 @@ class Test < Minitest::Test
         assert_equal("Full House", handjudger(hand))
     end 
     def test_for_hand_judger_straightflush
-        hand = Hand.new([5,9,13,17,21])
+        hand = Hand.new([4,8,12,16,20])
         assert_equal("Straight Flush", handjudger(hand))
     end
     def test_for_hand_judger_royalflush
-        hand = Hand.new([33,37,41,45,49])
+        hand = Hand.new([32,36,40,44,48])
         assert_equal("Royal Flush", handjudger(hand))
     end
 end

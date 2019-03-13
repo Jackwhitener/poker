@@ -34,7 +34,7 @@ def index_boy(card)
     end
 end
 def handjudger_rf(hand)
-    rf_hands = [[33,37,41,45,49],[34,38,42,46,50],[35,38,43,47,51],[36,39,43,48,52]]
+    rf_hands = [[32,36,40,44,48],[33,37,41,45,49],[34,37,42,48,50],[35,38,42,49,51]]
     handr = ""
     rf_hands.each do |rfhand|
         if hand.cards_in_hand == rfhand
@@ -44,7 +44,7 @@ def handjudger_rf(hand)
     return handr
 end
 def handjudger_f(hand)
-    card_values = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16], [17,18,19,20], [21,22,23,24], [25,26,27,28], [29,30,31,32], [33,34,35,36], [37,38,39,40], [41,42,43,44], [45,46,47,48], [49,50,51,52]]
+    card_values = [[0,1,2,3], [4,5,6,7], [8,9,10,11], [12,13,14,15], [16,17,18,19], [20,21,22,23],[24,25,26,27], [28,29,30,31],[32,33,34,35], [36,37,38,39], [40,41,42,43], [44,45,46,47], [48,49,50,51]]
     handvalue = []
     card_values.each do |value|
         
@@ -100,7 +100,7 @@ def truth_interpreter(truth)
     end
 end
 def handjudger_s(hand)
-    card_values = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16], [17,18,19,20], [21,22,23,24], [25,26,27,28], [29,30,31,32], [33,34,35,36], [37,38,39,40], [41,42,43,44], [45,46,47,48], [49,50,51,52]]
+    card_values = [[0,1,2,3], [4,5,6,7], [8,9,10,11], [12,13,14,15], [16,17,18,19], [20,21,22,23],[24,25,26,27], [28,29,30,31],[32,33,34,35], [36,37,38,39], [40,41,42,43], [44,45,46,47], [48,49,50,51]]
     handvalue = []
     card_values.each do |value|
         
@@ -126,7 +126,7 @@ def handjudger_s(hand)
     return truth_interpreter(truth)
 end
 def handjudger_toak(hand)
-    card_values = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16], [17,18,19,20], [21,22,23,24], [25,26,27,28], [29,30,31,32], [33,34,35,36], [37,38,39,40], [41,42,43,44], [45,46,47,48], [49,50,51,52]]
+    card_values = [[0,1,2,3], [4,5,6,7], [8,9,10,11], [12,13,14,15], [16,17,18,19], [20,21,22,23],[24,25,26,27], [28,29,30,31],[32,33,34,35], [36,37,38,39], [40,41,42,43], [44,45,46,47], [48,49,50,51]]
     card_values.each do |value|
         handvalue = 0
         value.each do |indivalue|
@@ -140,7 +140,7 @@ def handjudger_toak(hand)
 end
 def handjudger_p(hand)
     paircount = 0
-    pairs = [[1,2], [1,3], [1,4], [2,3], [2,4], [3,4], [5,6], [5,7], [5,8], [6,7], [6,8], [7,8], [9,10], [9,11], [9,12], [10,11], [10,12], [11,12], [13,14], [13,15], [13,16], [14,15], [14,16], [15,16], [17,18], [17,19], [17,20], [18,19], [18,20], [19,20], [21,22], [21,23], [21,24], [22, 23], [22,24], [23,24], [25,26], [25,27], [25,28], [26,27], [26, 28], [27,28], [29,30], [29,31], [29, 32], [30,31], [30, 32], [31,32], [33,34], [33,35], [33,36], [34,35], [34,36], [35,36]]
+    pairs = [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3],[4,5],[4,6],[4,7],[5,6],[5,7],[6,7],[8,9],[8,10],[8,11],[9,10],[9,11],[10,11],[12,13],[12,14],[12,15], [13,14], [13,15], [14,15], [16,17], [16,18], [16,19], [17,18], [17,19], [18,19], [20,21], [20,22], [20,23], [21,22], [21,23], [22,23], [24,25], [24,26], [24,27], [25,26], [25,27], [26,27], [28,29], [28,30], [28,31], [29,30], [29,31], [30,31], [32,33], [32,34], [32,35], [33,34], [33,35], [34,35], [36,37], [36,38], [36,39], [37,38], [37,39], [38,39], [40,41], [40,42], [40,43], [41,42], [41,43], [42,43], [44,45], [44,46], [44,47], [45,46], [45,47], [46,47], [48,49], [48,50], [48,51], [49,50], [49,51], [50,51]]
     pairs.each do |pair|
         if hand.cards_in_hand.include?(pair[0]) && hand.cards_in_hand.include?(pair[1])
             # puts pair
@@ -155,13 +155,13 @@ def handjudger_p(hand)
     end
 end
 def handjudger_hc(hand)
-    if hand.cards_in_hand.include?(52) || hand.cards_in_hand.include?(51) || hand.cards_in_hand.include?(50) || hand.cards_in_hand.include?(49)
+    if hand.cards_in_hand.include?(51) || hand.cards_in_hand.include?(50) || hand.cards_in_hand.include?(49) || hand.cards_in_hand.include?(48)
         return "Ace High" 
-    elsif hand.cards_in_hand.include?(48) || hand.cards_in_hand.include?(47) || hand.cards_in_hand.include?(46) || hand.cards_in_hand.include?(45)
+    elsif hand.cards_in_hand.include?(47) || hand.cards_in_hand.include?(46) || hand.cards_in_hand.include?(45) || hand.cards_in_hand.include?(44)
         return "King High"
-    elsif hand.cards_in_hand.include?(44) || hand.cards_in_hand.include?(43) || hand.cards_in_hand.include?(42) || hand.cards_in_hand.include?(41)
+    elsif hand.cards_in_hand.include?(43) || hand.cards_in_hand.include?(42) || hand.cards_in_hand.include?(41) || hand.cards_in_hand.include?(40)
         return "Queen High"
-    elsif hand.cards_in_hand.include?(40) || hand.cards_in_hand.include?(39) || hand.cards_in_hand.include?(38) || hand.cards_in_hand.include?(37)
+    elsif hand.cards_in_hand.include?(39) || hand.cards_in_hand.include?(38) || hand.cards_in_hand.include?(37) || hand.cards_in_hand.include?(36)
         return "Jack High" 
     else
         return "Card High"
@@ -207,6 +207,6 @@ def handjudger(hand)
 end
 def handslator(hand)
     cardnames = ["Two of Clubs", "Two of Diamonds", "Two of Hearts", "Three of Spades", "Three of Clubs", "Three of Diamonds", "Three of Hearts", "Three of Spades", "Four of Clubs", "Four of Diamonds", "Four of Hearts", "Four of Spades", "Five of Clubs", "Five of Diamonds", "Five of Hearts", "Five of Spades", "Six of Clubs", "Six of Diamonds", "Six of Hearts", "Six of Spades", "Seven of Clubs", "Seven of Diamonds", "Seven of Hearts", "Seven of Spades", "Eight of Clubs", "Eight of Diamonds", "Eight of Hearts", "Eight of Spades", "Nine of Clubs", "Nine of Diamonds", "Nine of Hearts", "Nine of Spades", "Ten of Clubs", "Ten of Diamonds", "Ten of Hearts", "Ten of Spades", "Jack of Clubs", "Jack of Diamonds", "Jack of Hearts", "Jack of Spades", "Queen of Clubs", "Queen of Diamonds", "Queen of Hearts", "Queen of Spades", "King of Clubs", "King of Diamonds", "King of Hearts", "King of Spades", "Ace of Clubs", "Ace of Diamonds", "Ace of Hearts", "Ace of Spades"]
-    hand = [cardnames[hand[0]-1], cardnames[hand[1]-1], cardnames[hand[2]-1], cardnames[hand[3]-1], cardnames[hand[4]-1]]
+    hand = [cardnames[hand[0]], cardnames[hand[1]], cardnames[hand[2]], cardnames[hand[3]], cardnames[hand[4]]]
     return hand
 end
