@@ -96,15 +96,18 @@ class Test < Minitest::Test
     def test_for_score_boy
         hand = Hand.new([1,6,15,30,32])
         score = handjudger(hand)
-        assert_equal(1,scoreboy(score))
+        assert_equal(0,scoreboy(score))
         hand1 = Hand.new([1,6,11,17,39])
         score1 = handjudger(hand1)
-        assert_equal(2,scoreboy(score1))
+        assert_equal(1,scoreboy(score1))
         hand2 = Hand.new([9,17,22,33,43])
         score2 = handjudger(hand2)
-        assert_equal(3,scoreboy(score2))
+        assert_equal(2,scoreboy(score2))
         hand3 = Hand.new([1,14,5,19,47])
         score3 = handjudger(hand3)
-        assert_equal(4, scoreboy(score3))
+        assert_equal(3, scoreboy(score3))
+        hand4 = Hand.new([51,1,14,5,19])
+        score4 = handjudger(hand4)
+        assert_equal(4, scoreboy(score4))
     end
 end
