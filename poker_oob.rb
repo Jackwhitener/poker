@@ -231,5 +231,7 @@ def scoreboy(score)
         return 8
     elsif score == "Flush"
         return 9
+    elsif score == "Full House"
+        return 10
     end
 end
