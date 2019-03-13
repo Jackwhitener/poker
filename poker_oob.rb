@@ -211,5 +211,9 @@ def handslator(hand)
     return hand
 end
 def scoreboy(score)
-    
+    if score == "Card High"
+        return 1
+    elsif score == "Jack High"
+        return 2
+    end
 end
