@@ -221,5 +221,7 @@ def scoreboy(score)
         return 3
     elsif score == "Ace High"
         return 4
+    elsif score == "Pair"
+        return 5
     end
 end
