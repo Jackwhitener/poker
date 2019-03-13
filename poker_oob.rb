@@ -217,6 +217,7 @@ def scoreboy(score)
         return 2
     elsif score == "Queen High"
         return 3
-        
+    elsif score == "King High"
+        return 4
     end
 end
