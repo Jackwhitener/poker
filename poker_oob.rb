@@ -31,8 +31,15 @@ def index_boy(card)
         end
     end
 end
-def handjudger_fh(hand)
-    
+def handjudger_rf(hand)
+    rf_hands = [[33,37,41,45,49],[34,38,42,46,50],[35,38,43,47,51],[36,39,43,48,52]]
+    handr = ""
+    rf_hands.each do |rfhand|
+        if hand.cards_in_hand == rfhand
+            handr = "Royal Flush"
+        end
+    end
+    return handr
 end
 def handjudger_f(hand)
     card_values = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16], [17,18,19,20], [21,22,23,24], [25,26,27,28], [29,30,31,32], [33,34,35,36], [37,38,39,40], [41,42,43,44], [45,46,47,48], [49,50,51,52]]
@@ -159,7 +166,12 @@ def handjudger_hc(hand)
     end
 end
 def handjudger(hand)
+    result = handjudger_rf(hand)
+    if result == "Royal Flush"
+        return result
+    else
     result = handjudger_f(hand)
+    end
     if result == "Flush"
         if handjudger_s(hand) == "Straight"
             return "Straight Flush"
