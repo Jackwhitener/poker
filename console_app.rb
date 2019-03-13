@@ -5,5 +5,7 @@ deck = Deck.new
 deck.cards_in_deck = deck.shufflecards
 redhand.draw(deck, 5)
 blackhand.draw(deck, 5)
-puts "Black hand: #{blackhand.cards_in_hand}, #{handjudger(blackhand)}"
-puts "Red hand: #{redhand.cards_in_hand}, #{handjudger(redhand)}"
+redhandlated = handslator(redhand.cards_in_hand)
+blackhandlated = handslator(blackhand.cards_in_hand)
+puts "Black hand: #{blackhand.cards_in_hand}, #{blackhandlated}, #{handjudger(blackhand)}"
+puts "Red hand: #{redhand.cards_in_hand}, #{redhandlated} #{handjudger(redhand)}"
