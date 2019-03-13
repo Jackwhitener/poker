@@ -227,7 +227,7 @@ def scoreboy(score)
         return 6
     elsif score == "Three of a Kind"
         return 7
-    elsif score == "Four of a Kind"
+    elsif score == "Straight"
         return 8
     end
 end
