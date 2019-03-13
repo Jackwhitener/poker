@@ -64,7 +64,7 @@ def handjudger_f(hand)
 end
 def straight_helper(card)
     score = 0
-    # puts "This is card #{card}"
+    puts "This is card #{card}"
     card.each do |icard|
         if icard == 'X'
             score += 1
@@ -103,7 +103,7 @@ def handjudger_s(hand)
             end
         end
     end
-    # puts "Handvalue: #{handvalue}"
+    puts "Handvalue: #{handvalue}"
     truth = Array.new
     13.times do
         arr = Array.new
@@ -113,7 +113,7 @@ def handjudger_s(hand)
         end
         truth << straight_helper(arr)
     end
-    # puts "This is truth #{truth}"
+    puts "This is truth #{truth}"
     return truth_interpreter(truth)
 end
 def handjudger_toak(hand)
@@ -161,9 +161,10 @@ end
 def handjudger(hand)
     result = handjudger_f(hand)
     if result == "Flush"
-        return result
         if handjudger_s(hand) == "Straight"
             return "Straight Flush"
+        else
+            return result
         end
     else
     result = handjudger_s(hand)
