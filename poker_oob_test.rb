@@ -89,4 +89,8 @@ class Test < Minitest::Test
         hand = Hand.new([5,9,13,17,21])
         assert_equal("Straight Flush", handjudger(hand))
     end
+    def test_for_hand_judger_royalflush
+        hand = Hand.new([33,37,41,45,49])
+        assert_equal("Royal Flush", handjudger(hand))
+    end
 end
