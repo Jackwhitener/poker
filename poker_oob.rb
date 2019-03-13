@@ -9,8 +9,10 @@ class Hand
     end
     def draw(deckdrawnfrom, cardnum)
         cardnum.times do
-            cards_in_hand << deckdrawnfrom.cards_in_deck[-1]
-            deckdrawnfrom.cards_in_deck.delete_at(deckdrawnfrom.cards_in_deck[-1])
+            drawncard = deckdrawnfrom.cards_in_deck[0]
+            cards_in_hand << drawncard
+            # puts "This is our deck: #{deckdrawnfrom.cards_in_deck}"
+            deckdrawnfrom.cards_in_deck.delete(drawncard)
         end
     end
 end
@@ -71,7 +73,7 @@ def handjudger_f(hand)
 end
 def straight_helper(card)
     score = 0
-    puts "This is card #{card}"
+    # puts "This is card #{card}"
     card.each do |icard|
         if icard == 'X'
             score += 1
@@ -110,7 +112,7 @@ def handjudger_s(hand)
             end
         end
     end
-    puts "Handvalue: #{handvalue}"
+    # puts "Handvalue: #{handvalue}"
     truth = Array.new
     13.times do
         arr = Array.new
@@ -120,7 +122,7 @@ def handjudger_s(hand)
         end
         truth << straight_helper(arr)
     end
-    puts "This is truth #{truth}"
+    # puts "This is truth #{truth}"
     return truth_interpreter(truth)
 end
 def handjudger_toak(hand)
@@ -141,8 +143,8 @@ def handjudger_p(hand)
     pairs = [[1,2], [1,3], [1,4], [2,3], [2,4], [3,4], [5,6], [5,7], [5,8], [6,7], [6,8], [7,8], [9,10], [9,11], [9,12], [10,11], [10,12], [11,12], [13,14], [13,15], [13,16], [14,15], [14,16], [15,16], [17,18], [17,19], [17,20], [18,19], [18,20], [19,20], [21,22], [21,23], [21,24], [22, 23], [22,24], [23,24], [25,26], [25,27], [25,28], [26,27], [26, 28], [27,28], [29,30], [29,31], [29, 32], [30,31], [30, 32], [31,32], [33,34], [33,35], [33,36], [34,35], [34,36], [35,36]]
     pairs.each do |pair|
         if hand.cards_in_hand.include?(pair[0]) && hand.cards_in_hand.include?(pair[1])
-            puts pair
-            puts hand.cards_in_hand
+            # puts pair
+            # puts hand.cards_in_hand
             paircount += 1
         end
     end
