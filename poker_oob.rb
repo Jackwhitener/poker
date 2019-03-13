@@ -229,5 +229,7 @@ def scoreboy(score)
         return 7
     elsif score == "Straight"
         return 8
+    elsif score == "Flush"
+        return 9
     end
 end
