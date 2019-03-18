@@ -245,12 +245,38 @@ def scoreboy(score)
     #     return 13
     # end
 end
+def tiehelper(redhand,blackhand)
+    redhand_cards = redhand.cards_in_hand.sort
+    blackhand_cards = blackhand.cards_in_hand.sort
+    result = nil
+    blackhand_result = 
+    while result == nil
+        if redhand_cards.empty? || blackhand_cards.empty?
+            break
+        end
+        if (redhand_cards[-1] <=> blackhand_cards[-1]) == 0
+            redhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+        elsif (redhand_cards[-1] <=> blackhand_cards[-1]) == 1
+            result = "Red Hand Wins"
+        elsif (redhand_cards[-1] <=> blackhand_cards[-1]) == -1
+            result = "Black Hand Wins"
+        end
+    end
+    return result
+end
 def tiebreaker(redhand,blackhand)
     redsult = scoreboy(redhand.hand_type)
     blacksult = scoreboy(blackhand.hand_type)
     if redsult == blacksult
         puts "Tie Detected"
-        
+        tiesult = tiehelper(redhand,blackhand)
+        results = [nil,"Red Hand Wins", "Black Hand Wins"]
+        results.each do |current|
+            if tiesult == current
+                return current
+            end
+        end
     else
         return "No Tie Detected"
     end

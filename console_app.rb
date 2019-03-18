@@ -16,5 +16,10 @@ if scoreblack > scorered
 elsif scorered > scoreblack
     puts "Red hand wins!"
 else
-    puts "Tie!"
+    tiebroken = tiebreaker(redhand,blackhand)
+    if tiebroken == nil
+        puts"Unbreakable tie!"
+    else
+        puts tiebroken
+    end
 end
