@@ -237,5 +237,10 @@ def scoreboy(score)
         return 11
     elsif score == "Straight Flush"
         return 12
+    elsif score == "Royal Flush"
+        return 13
     end
+end
+def tiebreaker(redhand,blackhand,tietype)
+
 end
