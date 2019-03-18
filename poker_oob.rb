@@ -1,11 +1,13 @@
 class Hand
     attr_accessor :cards_in_hand
+    attr_accessor :hand_type
     def initialize(cards_in_hand)
         if cards_in_hand != nil
             @cards_in_hand = cards_in_hand
         else
             @cards_in_hand = []
         end
+        @hand_type = handjudger(self)
     end
     def draw(deckdrawnfrom, cardnum)
         cardnum.times do
@@ -211,36 +213,45 @@ def handslator(hand)
     return hand
 end
 def scoreboy(score)
-    if score == "Card High"
-        return 0
-    elsif score == "Jack High"
-        return 1
-    elsif score == "Queen High"
-        return 2
-    elsif score == "King High"
-        return 3
-    elsif score == "Ace High"
-        return 4
-    elsif score == "Pair"
-        return 5
-    elsif score == "Two Pair"
-        return 6
-    elsif score == "Three of a Kind"
-        return 7
-    elsif score == "Straight"
-        return 8
-    elsif score == "Flush"
-        return 9
-    elsif score == "Full House"
-        return 10
-    elsif score == "Four of a Kind"
-        return 11
-    elsif score == "Straight Flush"
-        return 12
-    elsif score == "Royal Flush"
-        return 13
-    end
+    handvalue = ["Card High", "Jack High", "Queen High", "King High", "Ace High", "Pair", "Two Pair", "Three of a Kind", "Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush", "Royal Flush"]
+    return handvalue.index(score)
+    # if score == "Card High"
+    #     return 0
+    # elsif score == "Jack High"
+    #     return 1
+    # elsif score == "Queen High"
+    #     return 2
+    # elsif score == "King High"
+    #     return 3
+    # elsif score == "Ace High"
+    #     return 4
+    # elsif score == "Pair"
+    #     return 5
+    # elsif score == "Two Pair"
+    #     return 6
+    # elsif score == "Three of a Kind"
+    #     return 7
+    # elsif score == "Straight"
+    #     return 8
+    # elsif score == "Flush"
+    #     return 9
+    # elsif score == "Full House"
+    #     return 10
+    # elsif score == "Four of a Kind"
+    #     return 11
+    # elsif score == "Straight Flush"
+    #     return 12
+    # elsif score == "Royal Flush"
+    #     return 13
+    # end
 end
-def tiebreaker(redhand,blackhand,tietype)
-
+def tiebreaker(redhand,blackhand)
+    redsult = scoreboy(redhand.hand_type)
+    blacksult = scoreboy(blackhand.hand_type)
+    if redsult == blacksult
+        puts "Tie Detected"
+        
+    else
+        return "No Tie Detected"
+    end
 end

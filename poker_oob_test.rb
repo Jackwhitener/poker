@@ -138,9 +138,10 @@ class Test < Minitest::Test
         assert_equal(13,scoreboy(score13))
     end
     def test_tie_breaker
-        redhand = [1,6,15,30,32]
-        blackhand = [0,5,12,22,33]
-        tietype = "Card High"
-        assert_equal("Red Hand Wins", tiebreaker(redhand,blackhand,tietype))
+        redhand = Hand.new([1,6,15,30,32])
+        blackhand = Hand.new([0,5,12,22,33])
+        puts redhand.hand_type
+        puts blackhand.hand_type
+        assert_equal("Red Hand Wins", tiebreaker(redhand,blackhand))
     end
 end
