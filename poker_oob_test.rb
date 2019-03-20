@@ -61,7 +61,7 @@ class Test < Minitest::Test
     end
     def test_for_hand_judger_pair
         hand = Hand.new([1,2])
-        assert_equal("Pair", handjudger(hand))
+        assert_equal("Pair of Twos", handjudger(hand))
         hand1 = Hand.new([1,2,7,6])
         assert_equal("Two Pair", handjudger(hand1))
     end
@@ -114,34 +114,34 @@ class Test < Minitest::Test
         assert_equal(5, scoreboy(score5))
         hand6 = Hand.new([1,2,7,6])
         score6 = handjudger(hand6)
-        assert_equal(6, scoreboy(score6))
+        assert_equal(18, scoreboy(score6))
         hand7 = Hand.new([1,2,3])
         score7 = handjudger(hand7)
-        assert_equal(7,scoreboy(score7))
+        assert_equal(19,scoreboy(score7))
         hand8 = Hand.new([0,5,10,15,17])
         score8 = handjudger(hand8)
-        assert_equal(8, scoreboy(score8))
+        assert_equal(20, scoreboy(score8))
         hand9 = Hand.new([0,4,12,20,44])
         score9 = handjudger(hand9)
-        assert_equal(9,scoreboy(score9))
+        assert_equal(21,scoreboy(score9))
         hand10 = Hand.new([13,14,15,9,10])
         score10 = handjudger(hand10)
-        assert_equal(10, scoreboy(score10))
+        assert_equal(22, scoreboy(score10))
         hand11 = Hand.new([0,1,2,3])
         score11 = handjudger(hand11)
-        assert_equal(11, scoreboy(score11))
+        assert_equal(23, scoreboy(score11))
         hand12 = Hand.new([4,8,12,16,20])
         score12 = handjudger(hand12)
-        assert_equal(12,scoreboy(score12))
+        assert_equal(24,scoreboy(score12))
         hand13 = Hand.new([32,36,40,44,48])
         score13 = handjudger(hand13)
-        assert_equal(13,scoreboy(score13))
+        assert_equal(25,scoreboy(score13))
     end
     def test_tie_breaker
         redhand = Hand.new([1,6,15,30,32])
         blackhand = Hand.new([0,5,12,22,33])
         puts redhand.hand_type
         puts blackhand.hand_type
-        assert_equal("Red Hand Wins", tiebreaker(redhand,blackhand))
+        assert_equal("Black Hand Wins", tiebreaker(redhand,blackhand))
     end
 end

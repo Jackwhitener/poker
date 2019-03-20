@@ -21,7 +21,7 @@ end
 class Deck 
     attr_accessor :cards_in_deck
     def initialize
-        cards_in_deck = (1..52).to_a
+        cards_in_deck = (0..51).to_a
         @cards_in_deck = cards_in_deck
     end
     def shufflecards
@@ -140,18 +140,62 @@ def handjudger_toak(hand)
         return "Four of a Kind" if handvalue == 4
     end
 end
+def pair_helper(pair)
+    pairs = [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3],[4,5],[4,6],[4,7],[5,6],[5,7],[6,7],[8,9],[8,10],[8,11],[9,10],[9,11],[10,11],[12,13],[12,14],[12,15], [13,14], [13,15], [14,15], [16,17], [16,18], [16,19], [17,18], [17,19], [18,19], [20,21], [20,22], [20,23], [21,22], [21,23], [22,23], [24,25], [24,26], [24,27], [25,26], [25,27], [26,27], [28,29], [28,30], [28,31], [29,30], [29,31], [30,31], [32,33], [32,34], [32,35], [33,34], [33,35], [34,35], [36,37], [36,38], [36,39], [37,38], [37,39], [38,39], [40,41], [40,42], [40,43], [41,42], [41,43], [42,43], [44,45], [44,46], [44,47], [45,46], [45,47], [46,47], [48,49], [48,50], [48,51], [49,50], [49,51], [50,51]]
+    found_at = 0
+    pairs.each_with_index do |v, i|
+        # puts "this is v #{v}"
+        # puts "this is i #{i}"
+        if pair == v
+            found_at = i
+        end
+    end
+    # puts "THIS IS found_at: #{found_at}"
+    if found_at < 5
+        return "Pair of Twos"
+    elsif found_at > 4
+        return "Pair of Threes"
+    elsif found_at > 10
+        return "Pair of Fours"
+    elsif found_at > 16
+        return "Pair of Fives"
+    elsif found_at > 23
+        return "Pair of Sixes"
+    elsif found_at > 28
+        return "Pair of Sevens"
+    elsif found_at > 34
+        return "Pair of Eights"
+    elsif found_at > 40
+        return "Pair of Nines"
+    elsif found_at > 48
+        return "Pair of Tens"
+    elsif found_at > 53
+        return "Pair of Jacks"
+    elsif found_at > 58
+        return "Pair of Queens"
+    elsif found_at > 64
+        return "Pair of Kings"
+    elsif found_at > 70
+        return "Pair of Aces"
+    end
+    
+end
 def handjudger_p(hand)
     paircount = 0
+    pairfound = []
+    pairtocalc = []
     pairs = [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3],[4,5],[4,6],[4,7],[5,6],[5,7],[6,7],[8,9],[8,10],[8,11],[9,10],[9,11],[10,11],[12,13],[12,14],[12,15], [13,14], [13,15], [14,15], [16,17], [16,18], [16,19], [17,18], [17,19], [18,19], [20,21], [20,22], [20,23], [21,22], [21,23], [22,23], [24,25], [24,26], [24,27], [25,26], [25,27], [26,27], [28,29], [28,30], [28,31], [29,30], [29,31], [30,31], [32,33], [32,34], [32,35], [33,34], [33,35], [34,35], [36,37], [36,38], [36,39], [37,38], [37,39], [38,39], [40,41], [40,42], [40,43], [41,42], [41,43], [42,43], [44,45], [44,46], [44,47], [45,46], [45,47], [46,47], [48,49], [48,50], [48,51], [49,50], [49,51], [50,51]]
     pairs.each do |pair|
         if hand.cards_in_hand.include?(pair[0]) && hand.cards_in_hand.include?(pair[1])
             # puts pair
             # puts hand.cards_in_hand
+            pairfound << pair
             paircount += 1
         end
+       
     end
     if paircount == 1
-        return "Pair"
+        return pair_helper(pairfound)
     elsif paircount >= 2
         return "Two Pair"
     end
@@ -201,7 +245,7 @@ def handjudger(hand)
     else
     result = handjudger_p(hand)
     end
-    if result == "Pair" || result == "Two Pair"
+    if result == "Pair of Twos" || result == "Pair of Threes" || result == "Pair of Fours" || result == "Pair of Fives" || result == "Pair of Sixes" || result == "Pair of Sevens" || result == "Pair of Eights" || result == "Pair of Nines" || result == "Pair of Tens" || result == "Pair of Jacks" || result == "Pair of Kings" || result == "Pair of Aces" || result == "Two Pair"
         return result
     else
     return handjudger_hc(hand)
@@ -213,7 +257,7 @@ def handslator(hand)
     return hand
 end
 def scoreboy(score)
-    handvalue = ["Card High", "Jack High", "Queen High", "King High", "Ace High", "Pair", "Two Pair", "Three of a Kind", "Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush", "Royal Flush"]
+    handvalue = ["Card High", "Jack High", "Queen High", "King High", "Ace High", "Pair of Twos", "Pair of Threes", "Pair of Fours", "Pair of Fives", "Pair of Sixes", "Pair of Sevens", "Pair of Eights", "Pair of Nines", "Pair of Tens", "Pair of Jacks", "Pair of Queens", "Pair of Kings", "Pair of Aces", "Two Pair", "Three of a Kind", "Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush", "Royal Flush"]
     return handvalue.index(score)
     # if score == "Card High"
     #     return 0
@@ -249,14 +293,36 @@ def tiehelper(redhand,blackhand)
     redhand_cards = redhand.cards_in_hand.sort
     blackhand_cards = blackhand.cards_in_hand.sort
     result = nil
-    blackhand_result = 
     while result == nil
         if redhand_cards.empty? || blackhand_cards.empty?
             break
         end
         if (redhand_cards[-1] <=> blackhand_cards[-1]) == 0
-            redhand_cards.delete_at(-1)
-            blackhand_cards.delete_at(-1)
+            if redhand.handtype == 5
+                redhand_cards.delete_at(-1)
+                redhand_cards.delete_at(-1)
+                blackhand_cards.delete_at(-1)
+                blackhand_cards.delete_at(-1)
+            elsif redhand.handtype == 6 || redhand.handtype == 11
+                redhand_cards.delete_at(-1)
+                redhand_cards.delete_at(-1)
+                redhand_cards.delete_at(-1)
+                redhand_cards.delete_at(-1)
+                blackhand_cards.delete_at(-1)
+                blackhand_cards.delete_at(-1)
+                blackhand_cards.delete_at(-1)
+                blackhand_cards.delete_at(-1)
+            elsif redhand.handtype == 7 || redhand.handtype == 10
+                redhand_cards.delete_at(-1)
+                redhand_cards.delete_at(-1)
+                redhand_cards.delete_at(-1)
+                blackhand_cards.delete_at(-1)
+                blackhand_cards.delete_at(-1)
+                blackhand_cards.delete_at(-1)
+            else
+                redhand_cards.delete_at(-1)
+                blackhand_cards.delete_at(-1)
+            end
         elsif (redhand_cards[-1] <=> blackhand_cards[-1]) == 1
             result = "Red Hand Wins"
         elsif (redhand_cards[-1] <=> blackhand_cards[-1]) == -1
@@ -269,7 +335,7 @@ def tiebreaker(redhand,blackhand)
     redsult = scoreboy(redhand.hand_type)
     blacksult = scoreboy(blackhand.hand_type)
     if redsult == blacksult
-        puts "Tie Detected"
+        puts "Tie Detected!"
         tiesult = tiehelper(redhand,blackhand)
         results = [nil,"Red Hand Wins", "Black Hand Wins"]
         results.each do |current|
@@ -278,6 +344,6 @@ def tiebreaker(redhand,blackhand)
             end
         end
     else
-        return "No Tie Detected"
+        return "No Tie Detected!"
     end
 end
