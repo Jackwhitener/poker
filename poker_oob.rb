@@ -143,37 +143,40 @@ end
 def pair_helper(pair)
     pairs = [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3],[4,5],[4,6],[4,7],[5,6],[5,7],[6,7],[8,9],[8,10],[8,11],[9,10],[9,11],[10,11],[12,13],[12,14],[12,15], [13,14], [13,15], [14,15], [16,17], [16,18], [16,19], [17,18], [17,19], [18,19], [20,21], [20,22], [20,23], [21,22], [21,23], [22,23], [24,25], [24,26], [24,27], [25,26], [25,27], [26,27], [28,29], [28,30], [28,31], [29,30], [29,31], [30,31], [32,33], [32,34], [32,35], [33,34], [33,35], [34,35], [36,37], [36,38], [36,39], [37,38], [37,39], [38,39], [40,41], [40,42], [40,43], [41,42], [41,43], [42,43], [44,45], [44,46], [44,47], [45,46], [45,47], [46,47], [48,49], [48,50], [48,51], [49,50], [49,51], [50,51]]
     found_at = 0
-    pairs.each_with_index do |v, i|
+    pairs.each_with_index do |currentpair, index|
+        # puts "THIS IS PAIR: #{pair}"
+        # puts "THIS IS CURRENTPAIR #{currentpair}"
         # puts "this is v #{v}"
-        # puts "this is i #{i}"
-        if pair == v
-            found_at = i
+        # puts "this is index #{index}"
+        if currentpair == pair[0]
+            found_at = index
+            # puts "This is means a pair was found"
         end
     end
     # puts "THIS IS found_at: #{found_at}"
-    if found_at < 5
+    if found_at < 7
         return "Pair of Twos"
-    elsif found_at > 4
+    elsif found_at > 6 && found_at < 12
         return "Pair of Threes"
-    elsif found_at > 10
+    elsif found_at > 11 && found_at < 19
         return "Pair of Fours"
-    elsif found_at > 16
+    elsif found_at > 18 && found_at < 25
         return "Pair of Fives"
-    elsif found_at > 23
+    elsif found_at > 24 && found_at < 31
         return "Pair of Sixes"
-    elsif found_at > 28
+    elsif found_at > 30 && found_at < 37
         return "Pair of Sevens"
-    elsif found_at > 34
+    elsif found_at > 36 && found_at < 43
         return "Pair of Eights"
-    elsif found_at > 40
+    elsif found_at > 42 && found_at < 49
         return "Pair of Nines"
-    elsif found_at > 48
+    elsif found_at > 48 && found_at < 54
         return "Pair of Tens"
-    elsif found_at > 53
+    elsif found_at > 53 && found_at < 59
         return "Pair of Jacks"
-    elsif found_at > 58
+    elsif found_at > 58 && found_at < 65
         return "Pair of Queens"
-    elsif found_at > 64
+    elsif found_at > 64 && found_at < 71
         return "Pair of Kings"
     elsif found_at > 70
         return "Pair of Aces"
@@ -335,7 +338,7 @@ def tiebreaker(redhand,blackhand)
     redsult = scoreboy(redhand.hand_type)
     blacksult = scoreboy(blackhand.hand_type)
     if redsult == blacksult
-        puts "Tie Detected!"
+        # puts "Tie Detected!"
         tiesult = tiehelper(redhand,blackhand)
         results = [nil,"Red Hand Wins", "Black Hand Wins"]
         results.each do |current|
