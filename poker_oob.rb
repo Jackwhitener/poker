@@ -1,6 +1,7 @@
 class Hand
     attr_accessor :cards_in_hand
     attr_accessor :hand_type
+    attr_accessor :hand_score
     def initialize(cards_in_hand)
         if cards_in_hand != nil
             @cards_in_hand = cards_in_hand
@@ -8,6 +9,7 @@ class Hand
             @cards_in_hand = []
         end
         @hand_type = handjudger(self)
+        @hand_score = scoreboy(self.hand_type)
     end
     def draw(deckdrawnfrom, cardnum)
         cardnum.times do
@@ -272,7 +274,7 @@ def scoreboy(score)
     #     return 3
     # elsif score == "Ace High"
     #     return 4
-    # elsif score == "Pair"
+    # elsif score == "Pair of Twos"
     #     return 5
     # elsif score == "Two Pair"
     #     return 6
