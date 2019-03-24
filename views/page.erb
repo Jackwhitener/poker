@@ -7,10 +7,14 @@ Jack's Poker App <br>
 <% redhand.draw(deck, 5) %>
 <% blackhand.draw(deck, 5) %>
 <% redhand.cards_in_hand.each do |card| %>
-<% end %>
+    <img src="<%card%>" alt="Card">
+<% end %> <br>
 <% redhandslated = handslator(redhand.cards_in_hand)%>
 <% blackhandslated = handslator(blackhand.cards_in_hand)%>
 Red Hand: <%= redhandslated[0]%>, <%= redhandslated[1]%>, <%= redhandslated[2]%>, <%= redhandslated[3]%>, <%= redhandslated[4]%><br> <%= handjudger(redhand)%>, Score: <%= scoreboy(handjudger(redhand))%> <br>
+<% blackhand.cards_in_hand.each do |card| %>
+    <img src="<%card%>" alt="Card">
+<% end %> <br>
 Black Hand: <%=blackhandslated[0]%>, <%=blackhandslated[1]%>, <%=blackhandslated[2]%>, <%=blackhandslated[3]%>, <%=blackhandslated[4] %> <br> <%= handjudger(blackhand)%>, Score: <%= scoreboy(handjudger(blackhand))%> <br>
 <% if scoreboy(handjudger(blackhand)) > scoreboy(handjudger(redhand)) %> 
     Black Hand Wins <br>
