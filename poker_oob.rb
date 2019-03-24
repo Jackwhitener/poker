@@ -156,31 +156,31 @@ def pair_helper(pair)
         end
     end
     # puts "THIS IS found_at: #{found_at}"
-    if found_at < 7
+    if found_at < 6
         return "Pair of Twos"
-    elsif found_at > 6 && found_at < 12
+    elsif found_at > 5 && found_at < 12
         return "Pair of Threes"
-    elsif found_at > 11 && found_at < 19
+    elsif found_at > 11 && found_at < 18
         return "Pair of Fours"
-    elsif found_at > 18 && found_at < 25
+    elsif found_at > 17 && found_at < 24
         return "Pair of Fives"
-    elsif found_at > 24 && found_at < 31
+    elsif found_at > 23 && found_at < 30
         return "Pair of Sixes"
-    elsif found_at > 30 && found_at < 37
+    elsif found_at > 29 && found_at < 36
         return "Pair of Sevens"
-    elsif found_at > 36 && found_at < 43
+    elsif found_at > 35 && found_at < 42
         return "Pair of Eights"
-    elsif found_at > 42 && found_at < 49
+    elsif found_at > 41 && found_at < 48
         return "Pair of Nines"
-    elsif found_at > 48 && found_at < 54
+    elsif found_at > 47 && found_at < 54
         return "Pair of Tens"
-    elsif found_at > 53 && found_at < 59
+    elsif found_at > 53 && found_at < 60
         return "Pair of Jacks"
-    elsif found_at > 58 && found_at < 65
+    elsif found_at > 59 && found_at < 66
         return "Pair of Queens"
-    elsif found_at > 64 && found_at < 71
+    elsif found_at > 65 && found_at < 72
         return "Pair of Kings"
-    elsif found_at > 70
+    elsif found_at > 71
         return "Pair of Aces"
     end
     
