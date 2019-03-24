@@ -201,8 +201,10 @@ def handjudger_p(hand)
     end
     if paircount == 1
         return pair_helper(pairfound)
-    elsif paircount >= 2
+    elsif paircount == 2
         return "Two Pair"
+    elsif paircount >= 3
+        return "Full House"
     end
 end
 def handjudger_hc(hand)
@@ -240,7 +242,7 @@ def handjudger(hand)
     result = handjudger_toak(hand)
     end
     if result == "Three of a Kind"
-        if handjudger_p(hand) == "Two Pair" && hand.cards_in_hand.length == 5
+        if handjudger_p(hand) == "Full House"
             return "Full House"
         else
         return result
