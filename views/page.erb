@@ -6,6 +6,8 @@ Jack's Poker App <br>
 <% deck.cards_in_deck = deck.shufflecards%>
 <% redhand.draw(deck, 5) %>
 <% blackhand.draw(deck, 5) %>
+<% redhand.cards_in_hand.each do |card| %>
+<% end %>
 <% redhandslated = handslator(redhand.cards_in_hand)%>
 <% blackhandslated = handslator(blackhand.cards_in_hand)%>
 Red Hand: <%= redhandslated[0]%>, <%= redhandslated[1]%>, <%= redhandslated[2]%>, <%= redhandslated[3]%>, <%= redhandslated[4]%><br> <%= handjudger(redhand)%>, Score: <%= scoreboy(handjudger(redhand))%> <br>
