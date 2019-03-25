@@ -8,6 +8,22 @@ body {
   color:white;
   font-family:Comic Sans MS;
 }
+input {
+    background: transparent;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 15px 30px;
+    font-size: 25;
+    color: white;
+    font-family:Comic Sans MS;
+    transition:0.3s ease;
+}
+input:hover{
+    cursor:pointer;
+    color:#181818;
+    background: white;
+}
+
 </style>
 <h1>
 Jack's Poker App <br>
@@ -32,10 +48,10 @@ Red Hand: <%= redhandslated[0]%>, <%= redhandslated[1]%>, <%= redhandslated[2]%>
 Black Hand: <%=blackhandslated[0]%>, <%=blackhandslated[1]%>, <%=blackhandslated[2]%>, <%=blackhandslated[3]%>, <%=blackhandslated[4] %> <br> <%= handjudger(blackhand)%><br>
 <h1>
 <% if scoreboy(handjudger(blackhand)) > scoreboy(handjudger(redhand)) %> 
-    Black Hand Wins <br>
+    Black Hand Wins With: <%= handjudger(blackhand)%>  <br>
 <%elsif scoreboy(handjudger(redhand)) > scoreboy(handjudger(blackhand)) %>
 
-    Red Hand Wins <br>
+    Red Hand Wins With: <%= handjudger(redhand)%> <br>
 <%else%>
     <% tiebroken = tiebreaker(redhand,blackhand) %>
     <% if tiebroken == nil %>
