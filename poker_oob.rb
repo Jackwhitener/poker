@@ -203,7 +203,7 @@ def handjudger_p(hand)
         return pair_helper(pairfound)
     elsif paircount == 2
         return "Two Pair"
-    elsif paircount >= 3
+    elsif paircount >= 4
         return "Full House"
     end
 end
@@ -304,32 +304,34 @@ def tiehelper(redhand,blackhand)
         if redhand_cards.empty? || blackhand_cards.empty?
             break
         end
+        if redhand.hand_score == 5
+            redhand_cards.delete_at(-1)
+            redhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+        elsif redhand.hand_score == 6 || redhand.hand_score == 11
+            redhand_cards.delete_at(-1)
+            redhand_cards.delete_at(-1)
+            redhand_cards.delete_at(-1)
+            redhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+        elsif redhand.hand_score == 7 || redhand.hand_score == 10
+            redhand_cards.delete_at(-1)
+            redhand_cards.delete_at(-1)
+            redhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+        else
+            redhand_cards.delete_at(-1)
+            blackhand_cards.delete_at(-1)
+        end
         if (redhand_cards[-1] <=> blackhand_cards[-1]) == 0
-            if redhand.handtype == 5
-                redhand_cards.delete_at(-1)
                 redhand_cards.delete_at(-1)
                 blackhand_cards.delete_at(-1)
-                blackhand_cards.delete_at(-1)
-            elsif redhand.handtype == 6 || redhand.handtype == 11
-                redhand_cards.delete_at(-1)
-                redhand_cards.delete_at(-1)
-                redhand_cards.delete_at(-1)
-                redhand_cards.delete_at(-1)
-                blackhand_cards.delete_at(-1)
-                blackhand_cards.delete_at(-1)
-                blackhand_cards.delete_at(-1)
-                blackhand_cards.delete_at(-1)
-            elsif redhand.handtype == 7 || redhand.handtype == 10
-                redhand_cards.delete_at(-1)
-                redhand_cards.delete_at(-1)
-                redhand_cards.delete_at(-1)
-                blackhand_cards.delete_at(-1)
-                blackhand_cards.delete_at(-1)
-                blackhand_cards.delete_at(-1)
-            else
-                redhand_cards.delete_at(-1)
-                blackhand_cards.delete_at(-1)
-            end
         elsif (redhand_cards[-1] <=> blackhand_cards[-1]) == 1
             result = "Red Hand Wins"
         elsif (redhand_cards[-1] <=> blackhand_cards[-1]) == -1
