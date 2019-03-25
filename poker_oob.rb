@@ -273,7 +273,7 @@ def scoreboy(score)
     # elsif score == "Queen High"
     #     return 2
     # elsif score == "King High"
-    #     return 3
+    #     return 3 
     # elsif score == "Ace High"
     #     return 4
     # elsif score == "Pair of Twos"

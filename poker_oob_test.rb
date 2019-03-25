@@ -65,6 +65,9 @@ class Test < Minitest::Test
         hand1 = Hand.new([1,2,7,6])
         assert_equal("Two Pair", handjudger(hand1))
     end
+    def test_for_pair_helper
+        assert_equal("Pair of Twos", pair_helper([1,2]))
+    end
     def test_for_hand_judger_toak
         hand = Hand.new([1,2,3])
         assert_equal("Three of a Kind", handjudger(hand))
@@ -80,6 +83,8 @@ class Test < Minitest::Test
     def test_for_hand_judger_flush
         hand = Hand.new([0,4,12,20,44])
         assert_equal("Flush", handjudger(hand))
+        hand1 = Hand.new([3,15,27,35,39])
+        assert_equal("Flush", handjudger(hand1))
     end
     def test_for_hand_judger_fullhouse
         hand = Hand.new([13,14,15,9,10])
@@ -142,6 +147,11 @@ class Test < Minitest::Test
         blackhand = Hand.new([0,5,12,22,33])
         puts redhand.hand_type
         puts blackhand.hand_type
-        assert_equal("Black Hand Wins", tiebreaker(redhand,blackhand))
+        assert_equal("Red Hand Wins", tiebreaker(redhand,blackhand))
+    end
+    def test_tie_helper
+        redhand = Hand.new([1,6,15,30,32])
+        blackhand = Hand.new([0,5,12,22,33])
+        assert_equal("Red Hand Wins",tiehelper(redhand,blackhand))
     end
 end
