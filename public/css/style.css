@@ -1,0 +1,24 @@
+h1{
+    font-size:30px
+}
+body {
+  background-color: mediumseagreen;
+  text-align: center;
+  color:white;
+  font-family:Comic Sans MS;
+}
+input {
+    background: transparent;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 15px 30px;
+    font-size: 25;
+    color: white;
+    font-family:Comic Sans MS;
+    transition:0.3s ease;
+}
+input:hover{
+    cursor:pointer;
+    color:#181818;
+    background: white;
+}
