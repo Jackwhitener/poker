@@ -30,12 +30,11 @@ Black Hand: <%=blackhandslated[0]%>, <%=blackhandslated[1]%>, <%=blackhandslated
     <% tiebroken = tiebreaker(redhand,blackhand) %>
     <% if tiebroken == nil %>
       <br> Unbreakable Tie! <br>
-    <% else %>
-        <% if tiebroken == "Red Hand Wins"%>
+        <% elsif tiebroken == "Red Hand Wins"%>
         Red Hand Wins With: <%= handjudger(redhand)%>
         <% elsif tiebroken == "Black Hand Wins"%>
         Black Hand Wins with <%= handjudger(blackhand)%>
-        <%end%>
+    <%end%>
     <%end%>
 </h1>
 <form method='post' action = '/page'>
