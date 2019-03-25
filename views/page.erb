@@ -1,4 +1,17 @@
+<style>
+h1{
+    font-size:30px
+}
+body {
+  background-color: mediumseagreen;
+  text-align: center;
+  color:white;
+  font-family:Comic Sans MS;
+}
+</style>
+<h1>
 Jack's Poker App <br>
+</h1>
 <% require_relative "../poker_oob.rb" %>
 <% redhand = Hand.new(nil) %>
 <% blackhand = Hand.new(nil) %>
@@ -17,6 +30,7 @@ Red Hand: <%= redhandslated[0]%>, <%= redhandslated[1]%>, <%= redhandslated[2]%>
 
 <% end %> <br>
 Black Hand: <%=blackhandslated[0]%>, <%=blackhandslated[1]%>, <%=blackhandslated[2]%>, <%=blackhandslated[3]%>, <%=blackhandslated[4] %> <br> <%= handjudger(blackhand)%><br>
+<h1>
 <% if scoreboy(handjudger(blackhand)) > scoreboy(handjudger(redhand)) %> 
     Black Hand Wins <br>
 <%elsif scoreboy(handjudger(redhand)) > scoreboy(handjudger(blackhand)) %>
@@ -30,6 +44,7 @@ Black Hand: <%=blackhandslated[0]%>, <%=blackhandslated[1]%>, <%=blackhandslated
         <%=tiebroken%>
     <%end%>
     <%end%>
+</h1>
 <form method='post' action = '/page'>
     <input type='submit' value='Play Again?'>
 </form>
